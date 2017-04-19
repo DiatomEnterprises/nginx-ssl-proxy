@@ -5,7 +5,8 @@ This repository is used to build a Docker image that acts as an HTTP [reverse pr
 Build the image yourself by cloning this repository then running:
 
 ```shell
-docker build -t nginx-ssl-proxy .
+docker build -t klzii/nginx-ssl-proxy:latest .
+docker push klzii/nginx-ssl-proxy:latest
 ```
 
 ## Using with Kubernetes
@@ -41,7 +42,7 @@ To run an SSL termination proxy you must have an existing SSL certificate and ke
       -v /path/to/secrets/dhparam.pem:/etc/secrets/dhparam \
       nginx-ssl-proxy
     ```
-    The really important thing here is that you map in your cert to `/etc/secrets/proxycert`, your key to `/etc/secrets/proxykey`, and your dhparam to `/etc/secrets/dhparam` as shown in the command above. 
+    The really important thing here is that you map in your cert to `/etc/secrets/proxycert`, your key to `/etc/secrets/proxykey`, and your dhparam to `/etc/secrets/dhparam` as shown in the command above.
 
 3. **Enable Basic Access Authentication**
 
